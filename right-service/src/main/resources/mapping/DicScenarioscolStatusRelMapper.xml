@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.DicScenarioscolStatusRelMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.DicScenarioscolStatusRel">
+    <id column="ss_id" jdbcType="INTEGER" property="ssId" />
+    <result column="biz_id" jdbcType="INTEGER" property="bizId" />
+    <result column="status_id" jdbcType="INTEGER" property="statusId" />
+    <result column="interface_rollback" jdbcType="VARCHAR" property="interfaceRollback" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ss_id, biz_id, status_id, interface_rollback
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dic_scenarioscol_status_rel
+    where ss_id = #{ssId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dic_scenarioscol_status_rel
+    where ss_id = #{ssId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.DicScenarioscolStatusRel">
+    insert into dic_scenarioscol_status_rel (ss_id, biz_id, status_id, 
+      interface_rollback)
+    values (#{ssId,jdbcType=INTEGER}, #{bizId,jdbcType=INTEGER}, #{statusId,jdbcType=INTEGER}, 
+      #{interfaceRollback,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.DicScenarioscolStatusRel">
+    insert into dic_scenarioscol_status_rel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ssId != null">
+        ss_id,
+      </if>
+      <if test="bizId != null">
+        biz_id,
+      </if>
+      <if test="statusId != null">
+        status_id,
+      </if>
+      <if test="interfaceRollback != null">
+        interface_rollback,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ssId != null">
+        #{ssId,jdbcType=INTEGER},
+      </if>
+      <if test="bizId != null">
+        #{bizId,jdbcType=INTEGER},
+      </if>
+      <if test="statusId != null">
+        #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="interfaceRollback != null">
+        #{interfaceRollback,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.DicScenarioscolStatusRel">
+    update dic_scenarioscol_status_rel
+    <set>
+      <if test="bizId != null">
+        biz_id = #{bizId,jdbcType=INTEGER},
+      </if>
+      <if test="statusId != null">
+        status_id = #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="interfaceRollback != null">
+        interface_rollback = #{interfaceRollback,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ss_id = #{ssId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.DicScenarioscolStatusRel">
+    update dic_scenarioscol_status_rel
+    set biz_id = #{bizId,jdbcType=INTEGER},
+      status_id = #{statusId,jdbcType=INTEGER},
+      interface_rollback = #{interfaceRollback,jdbcType=VARCHAR}
+    where ss_id = #{ssId,jdbcType=INTEGER}
+  </update>
+</mapper>

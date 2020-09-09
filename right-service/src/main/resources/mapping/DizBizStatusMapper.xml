@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.DizBizStatusMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.DizBizStatus">
+    <id column="status_id" jdbcType="INTEGER" property="statusId" />
+    <result column="status_nm" jdbcType="VARCHAR" property="statusNm" />
+    <result column="is_rollback" jdbcType="INTEGER" property="isRollback" />
+    <result column="biz_statuscol" jdbcType="VARCHAR" property="bizStatuscol" />
+    <result column="status_type" jdbcType="INTEGER" property="statusType" />
+    <result column="howlong_callback" jdbcType="INTEGER" property="howlongCallback" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    status_id, status_nm, is_rollback, biz_statuscol, status_type, howlong_callback
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dic_biz_status
+    where status_id = #{statusId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dic_biz_status
+    where status_id = #{statusId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.DizBizStatus">
+    insert into dic_biz_status (status_id, status_nm, is_rollback, 
+      biz_statuscol, status_type, howlong_callback
+      )
+    values (#{statusId,jdbcType=INTEGER}, #{statusNm,jdbcType=VARCHAR}, #{isRollback,jdbcType=INTEGER}, 
+      #{bizStatuscol,jdbcType=VARCHAR}, #{statusType,jdbcType=INTEGER}, #{howlongCallback,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.DizBizStatus">
+    insert into dic_biz_status
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="statusId != null">
+        status_id,
+      </if>
+      <if test="statusNm != null">
+        status_nm,
+      </if>
+      <if test="isRollback != null">
+        is_rollback,
+      </if>
+      <if test="bizStatuscol != null">
+        biz_statuscol,
+      </if>
+      <if test="statusType != null">
+        status_type,
+      </if>
+      <if test="howlongCallback != null">
+        howlong_callback,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="statusId != null">
+        #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="statusNm != null">
+        #{statusNm,jdbcType=VARCHAR},
+      </if>
+      <if test="isRollback != null">
+        #{isRollback,jdbcType=INTEGER},
+      </if>
+      <if test="bizStatuscol != null">
+        #{bizStatuscol,jdbcType=VARCHAR},
+      </if>
+      <if test="statusType != null">
+        #{statusType,jdbcType=INTEGER},
+      </if>
+      <if test="howlongCallback != null">
+        #{howlongCallback,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.DizBizStatus">
+    update dic_biz_status
+    <set>
+      <if test="statusNm != null">
+        status_nm = #{statusNm,jdbcType=VARCHAR},
+      </if>
+      <if test="isRollback != null">
+        is_rollback = #{isRollback,jdbcType=INTEGER},
+      </if>
+      <if test="bizStatuscol != null">
+        biz_statuscol = #{bizStatuscol,jdbcType=VARCHAR},
+      </if>
+      <if test="statusType != null">
+        status_type = #{statusType,jdbcType=INTEGER},
+      </if>
+      <if test="howlongCallback != null">
+        howlong_callback = #{howlongCallback,jdbcType=INTEGER},
+      </if>
+    </set>
+    where status_id = #{statusId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.DizBizStatus">
+    update dic_biz_status
+    set status_nm = #{statusNm,jdbcType=VARCHAR},
+      is_rollback = #{isRollback,jdbcType=INTEGER},
+      biz_statuscol = #{bizStatuscol,jdbcType=VARCHAR},
+      status_type = #{statusType,jdbcType=INTEGER},
+      howlong_callback = #{howlongCallback,jdbcType=INTEGER}
+    where status_id = #{statusId,jdbcType=INTEGER}
+  </update>
+</mapper>

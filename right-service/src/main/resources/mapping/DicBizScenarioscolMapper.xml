@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.DicBizScenarioscolMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.DicBizScenarioscol">
+    <id column="biz_id" jdbcType="INTEGER" property="bizId" />
+    <result column="biz_cd" jdbcType="VARCHAR" property="bizCd" />
+    <result column="biz_progress" jdbcType="INTEGER" property="bizProgress" />
+    <result column="wait_deadqueue_time" jdbcType="INTEGER" property="waitDeadqueueTime" />
+    <result column="biz scenarioscol" jdbcType="VARCHAR" property="bizScenarioscol" />
+    <result column="create_dt" jdbcType="VARCHAR" property="createDt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    biz_id, biz_cd, biz_progress, wait_deadqueue_time, "biz scenarioscol", create_dt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dic_biz_scenarioscol
+    where biz_id = #{bizId,jdbcType=INTEGER}
+  </select>
+  
+    
+  <select id="selectByBizCd" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from dic_biz_scenarioscol
+    where biz_id = #{bizCd,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dic_biz_scenarioscol
+    where biz_id = #{bizId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.DicBizScenarioscol">
+    insert into dic_biz_scenarioscol (biz_id, biz_cd, biz_progress, 
+      wait_deadqueue_time, "biz scenarioscol", create_dt
+      )
+    values (#{bizId,jdbcType=INTEGER}, #{bizCd,jdbcType=VARCHAR}, #{bizProgress,jdbcType=INTEGER}, 
+      #{waitDeadqueueTime,jdbcType=INTEGER}, #{bizScenarioscol,jdbcType=VARCHAR}, #{createDt,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.DicBizScenarioscol">
+    insert into dic_biz_scenarioscol
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bizId != null">
+        biz_id,
+      </if>
+      <if test="bizCd != null">
+        biz_cd,
+      </if>
+      <if test="bizProgress != null">
+        biz_progress,
+      </if>
+      <if test="waitDeadqueueTime != null">
+        wait_deadqueue_time,
+      </if>
+      <if test="bizScenarioscol != null">
+        "biz scenarioscol",
+      </if>
+      <if test="createDt != null">
+        create_dt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bizId != null">
+        #{bizId,jdbcType=INTEGER},
+      </if>
+      <if test="bizCd != null">
+        #{bizCd,jdbcType=VARCHAR},
+      </if>
+      <if test="bizProgress != null">
+        #{bizProgress,jdbcType=INTEGER},
+      </if>
+      <if test="waitDeadqueueTime != null">
+        #{waitDeadqueueTime,jdbcType=INTEGER},
+      </if>
+      <if test="bizScenarioscol != null">
+        #{bizScenarioscol,jdbcType=VARCHAR},
+      </if>
+      <if test="createDt != null">
+        #{createDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.DicBizScenarioscol">
+    update dic_biz_scenarioscol
+    <set>
+      <if test="bizCd != null">
+        biz_cd = #{bizCd,jdbcType=VARCHAR},
+      </if>
+      <if test="bizProgress != null">
+        biz_progress = #{bizProgress,jdbcType=INTEGER},
+      </if>
+      <if test="waitDeadqueueTime != null">
+        wait_deadqueue_time = #{waitDeadqueueTime,jdbcType=INTEGER},
+      </if>
+      <if test="bizScenarioscol != null">
+        "biz scenarioscol" = #{bizScenarioscol,jdbcType=VARCHAR},
+      </if>
+      <if test="createDt != null">
+        create_dt = #{createDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where biz_id = #{bizId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.DicBizScenarioscol">
+    update dic_biz_scenarioscol
+    set biz_cd = #{bizCd,jdbcType=VARCHAR},
+      biz_progress = #{bizProgress,jdbcType=INTEGER},
+      wait_deadqueue_time = #{waitDeadqueueTime,jdbcType=INTEGER},
+      "biz scenarioscol" = #{bizScenarioscol,jdbcType=VARCHAR},
+      create_dt = #{createDt,jdbcType=VARCHAR}
+    where biz_id = #{bizId,jdbcType=INTEGER}
+  </update>
+</mapper>
