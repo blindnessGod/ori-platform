@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriDownOrderMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriDownOrder">
+    <id column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
+    <result column="CHANNEL_NAME" jdbcType="VARCHAR" property="channelName" />
+    <result column="PROD_ID" jdbcType="INTEGER" property="prodId" />
+    <result column="PROD_NAME" jdbcType="VARCHAR" property="prodName" />
+    <result column="APPLY_STATUS" jdbcType="INTEGER" property="applyStatus" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="PHONE_NO" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="USER_KEY" jdbcType="VARCHAR" property="userKey" />
+    <result column="IS_DOWN" jdbcType="INTEGER" property="isDown" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="ORI_LEVEL_ID" jdbcType="INTEGER" property="oriLevelId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORDER_ID, CHANNEL_ID, CHANNEL_NAME, PROD_ID, PROD_NAME, APPLY_STATUS, CARD_NO, USER_ID, 
+    CERT_TYPE, CERT_NO, PHONE_NO, USER_KEY, IS_DOWN, USER_NAME, ORI_LEVEL_ID, CREATE_TIME, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_DOWN_ORDER
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_ORI_DOWN_ORDER
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriDownOrder">
+    insert into T_ORI_DOWN_ORDER (ORDER_ID, CHANNEL_ID, CHANNEL_NAME, 
+      PROD_ID, PROD_NAME, APPLY_STATUS, 
+      CARD_NO, USER_ID, CERT_TYPE, 
+      CERT_NO, PHONE_NO, USER_KEY, 
+      IS_DOWN, USER_NAME, ORI_LEVEL_ID, 
+      CREATE_TIME, UPDATE_TIME)
+    values (#{orderId,jdbcType=VARCHAR}, #{channelId,jdbcType=INTEGER}, #{channelName,jdbcType=VARCHAR}, 
+      #{prodId,jdbcType=INTEGER}, #{prodName,jdbcType=VARCHAR}, #{applyStatus,jdbcType=INTEGER}, 
+      #{cardNo,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{certType,jdbcType=VARCHAR}, 
+      #{certNo,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{userKey,jdbcType=VARCHAR}, 
+      #{isDown,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{oriLevelId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriDownOrder">
+    insert into T_ORI_DOWN_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME,
+      </if>
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="prodName != null">
+        PROD_NAME,
+      </if>
+      <if test="applyStatus != null">
+        APPLY_STATUS,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO,
+      </if>
+      <if test="userKey != null">
+        USER_KEY,
+      </if>
+      <if test="isDown != null">
+        IS_DOWN,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="oriLevelId != null">
+        ORI_LEVEL_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="prodName != null">
+        #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStatus != null">
+        #{applyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null">
+        #{userKey,jdbcType=VARCHAR},
+      </if>
+      <if test="isDown != null">
+        #{isDown,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="oriLevelId != null">
+        #{oriLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriDownOrder">
+    update T_ORI_DOWN_ORDER
+    <set>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        PROD_ID = #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="prodName != null">
+        PROD_NAME = #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStatus != null">
+        APPLY_STATUS = #{applyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null">
+        USER_KEY = #{userKey,jdbcType=VARCHAR},
+      </if>
+      <if test="isDown != null">
+        IS_DOWN = #{isDown,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="oriLevelId != null">
+        ORI_LEVEL_ID = #{oriLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriDownOrder">
+    update T_ORI_DOWN_ORDER
+    set CHANNEL_ID = #{channelId,jdbcType=INTEGER},
+      CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=INTEGER},
+      PROD_NAME = #{prodName,jdbcType=VARCHAR},
+      APPLY_STATUS = #{applyStatus,jdbcType=INTEGER},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      USER_KEY = #{userKey,jdbcType=VARCHAR},
+      IS_DOWN = #{isDown,jdbcType=INTEGER},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      ORI_LEVEL_ID = #{oriLevelId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ORDER_ID = #{orderId,jdbcType=VARCHAR}
+  </update>
+</mapper>

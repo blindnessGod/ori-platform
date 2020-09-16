@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriBatchImportMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriBatchImport">
+    <result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+    <result column="FAILD_CAUSE" jdbcType="VARCHAR" property="faildCause" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ori.pojo.TOriBatchImport">
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    CONTENT
+  </sql>
+  <insert id="insert" parameterType="com.ori.pojo.TOriBatchImport">
+    insert into T_ORI_BATCH_IMPORT (FILE_NAME, FAILD_CAUSE, CONTENT
+      )
+    values (#{fileName,jdbcType=VARCHAR}, #{faildCause,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriBatchImport">
+    insert into T_ORI_BATCH_IMPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileName != null">
+        FILE_NAME,
+      </if>
+      <if test="faildCause != null">
+        FAILD_CAUSE,
+      </if>
+      <if test="content != null">
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="faildCause != null">
+        #{faildCause,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

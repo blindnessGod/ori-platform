@@ -3,7 +3,8 @@ package com.ori.mapper;
 import com.ori.pojo.DicScenarioscolStatusRel;
 
 public interface DicScenarioscolStatusRelMapper {
-    int deleteByPrimaryKey(Integer ssId);
+
+	int deleteByPrimaryKey(Integer ssId);
 
     int insert(DicScenarioscolStatusRel record);
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriRightSystemMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriRightSystem">
+    <id column="RIGHT_SYSTEM_ID" jdbcType="INTEGER" property="rightSystemId" />
+    <result column="SYSTEM_CODE" jdbcType="VARCHAR" property="systemCode" />
+    <result column="SYSTEM_NAME" jdbcType="VARCHAR" property="systemName" />
+    <result column="IS_ENABLE" jdbcType="INTEGER" property="isEnable" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RIGHT_SYSTEM_ID, SYSTEM_CODE, SYSTEM_NAME, IS_ENABLE, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_RIGHT_SYSTEM
+    where RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_RIGHT_SYSTEM
+    where RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriRightSystem">
+    insert into T_ORI_RIGHT_SYSTEM (RIGHT_SYSTEM_ID, SYSTEM_CODE, SYSTEM_NAME, 
+      IS_ENABLE, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{rightSystemId,jdbcType=INTEGER}, #{systemCode,jdbcType=VARCHAR}, #{systemName,jdbcType=VARCHAR}, 
+      #{isEnable,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriRightSystem">
+    insert into T_ORI_RIGHT_SYSTEM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rightSystemId != null">
+        RIGHT_SYSTEM_ID,
+      </if>
+      <if test="systemCode != null">
+        SYSTEM_CODE,
+      </if>
+      <if test="systemName != null">
+        SYSTEM_NAME,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rightSystemId != null">
+        #{rightSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="systemCode != null">
+        #{systemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="systemName != null">
+        #{systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriRightSystem">
+    update T_ORI_RIGHT_SYSTEM
+    <set>
+      <if test="systemCode != null">
+        SYSTEM_CODE = #{systemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="systemName != null">
+        SYSTEM_NAME = #{systemName,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriRightSystem">
+    update T_ORI_RIGHT_SYSTEM
+    set SYSTEM_CODE = #{systemCode,jdbcType=VARCHAR},
+      SYSTEM_NAME = #{systemName,jdbcType=VARCHAR},
+      IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER}
+  </update>
+</mapper>

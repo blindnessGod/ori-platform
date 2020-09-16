@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriCardChannelRightMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriCardChannelRight">
+    <id column="CHANNEL_RIGHT_ID" jdbcType="INTEGER" property="channelRightId" />
+    <result column="CHANNEL_ID" jdbcType="INTEGER" property="channelId" />
+    <result column="RIGHT_ID" jdbcType="INTEGER" property="rightId" />
+    <result column="FIELD_ID" jdbcType="INTEGER" property="fieldId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CHANNEL_RIGHT_ID, CHANNEL_ID, RIGHT_ID, FIELD_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_CARD_CHANNEL_RIGHT
+    where CHANNEL_RIGHT_ID = #{channelRightId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_CARD_CHANNEL_RIGHT
+    where CHANNEL_RIGHT_ID = #{channelRightId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriCardChannelRight">
+    insert into T_ORI_CARD_CHANNEL_RIGHT (CHANNEL_RIGHT_ID, CHANNEL_ID, RIGHT_ID, 
+      FIELD_ID)
+    values (#{channelRightId,jdbcType=INTEGER}, #{channelId,jdbcType=INTEGER}, #{rightId,jdbcType=INTEGER}, 
+      #{fieldId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriCardChannelRight">
+    insert into T_ORI_CARD_CHANNEL_RIGHT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelRightId != null">
+        CHANNEL_RIGHT_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID,
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelRightId != null">
+        #{channelRightId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="rightId != null">
+        #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        #{fieldId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriCardChannelRight">
+    update T_ORI_CARD_CHANNEL_RIGHT
+    <set>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID = #{fieldId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CHANNEL_RIGHT_ID = #{channelRightId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriCardChannelRight">
+    update T_ORI_CARD_CHANNEL_RIGHT
+    set CHANNEL_ID = #{channelId,jdbcType=INTEGER},
+      RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      FIELD_ID = #{fieldId,jdbcType=INTEGER}
+    where CHANNEL_RIGHT_ID = #{channelRightId,jdbcType=INTEGER}
+  </update>
+</mapper>

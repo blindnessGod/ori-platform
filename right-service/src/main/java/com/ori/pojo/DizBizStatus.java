@@ -1,7 +1,8 @@
 package com.ori.pojo;
 
 public class DizBizStatus {
-    private Integer statusId;
+
+	private Integer statusId;
 
     private String statusNm;
 

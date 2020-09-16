@@ -22,7 +22,7 @@
     
   <select id="selectByBizCd" parameterType="java.lang.String" resultMap="BaseResultMap">
   	select
-  	<include refid="Base_Column_List"/>
+  	<include refid="Base_Column_List" />
   	from dic_biz_scenarioscol
     where biz_id = #{bizCd,jdbcType=VARCHAR}
   </select>

@@ -33,6 +33,19 @@ spring:
       #3.基础监控配置
       web-stat-filter:
         enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        allow:
+        deny:
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+      url: jdbc:mysql://192.168.201.196:3306/state_management?serverTimezone=GMT%2B8&useSSL=false&characterEncoding=utf-8
+      username: root
+      password: abcd1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.ori.mapper

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriCardProdMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriCardProd">
+    <id column="PROD_ID" jdbcType="INTEGER" property="prodId" />
+    <result column="LEVEL_ID" jdbcType="INTEGER" property="levelId" />
+    <result column="SERIES_ID" jdbcType="INTEGER" property="seriesId" />
+    <result column="PICTURE_PATH" jdbcType="VARCHAR" property="picturePath" />
+    <result column="CARD_NAME" jdbcType="VARCHAR" property="cardName" />
+    <result column="PROD_CODE" jdbcType="VARCHAR" property="prodCode" />
+    <result column="PROJRCT_CODE" jdbcType="VARCHAR" property="projrctCode" />
+    <result column="ANNUAL_FEE_CODE" jdbcType="VARCHAR" property="annualFeeCode" />
+    <result column="BOARD_CODE" jdbcType="VARCHAR" property="boardCode" />
+    <result column="FREE_RIGHT_NUM" jdbcType="INTEGER" property="freeRightNum" />
+    <result column="CHARGE_RIGHT_NUM" jdbcType="INTEGER" property="chargeRightNum" />
+    <result column="ONE_DOWN_PROD_ID" jdbcType="INTEGER" property="oneDownProdId" />
+    <result column="IS_ALLOW_ONE_DOWN" jdbcType="INTEGER" property="isAllowOneDown" />
+    <result column="TWO_DOWN_PROD_ID" jdbcType="INTEGER" property="twoDownProdId" />
+    <result column="IS_ALLOW_TWO_DOWN" jdbcType="INTEGER" property="isAllowTwoDown" />
+    <result column="IS_ENABLE" jdbcType="INTEGER" property="isEnable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PROD_ID, LEVEL_ID, SERIES_ID, PICTURE_PATH, CARD_NAME, PROD_CODE, PROJRCT_CODE, ANNUAL_FEE_CODE, 
+    BOARD_CODE, FREE_RIGHT_NUM, CHARGE_RIGHT_NUM, ONE_DOWN_PROD_ID, IS_ALLOW_ONE_DOWN, 
+    TWO_DOWN_PROD_ID, IS_ALLOW_TWO_DOWN, IS_ENABLE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_CARD_PROD
+    where PROD_ID = #{prodId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_CARD_PROD
+    where PROD_ID = #{prodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriCardProd">
+    insert into T_ORI_CARD_PROD (PROD_ID, LEVEL_ID, SERIES_ID, 
+      PICTURE_PATH, CARD_NAME, PROD_CODE, 
+      PROJRCT_CODE, ANNUAL_FEE_CODE, BOARD_CODE, 
+      FREE_RIGHT_NUM, CHARGE_RIGHT_NUM, ONE_DOWN_PROD_ID, 
+      IS_ALLOW_ONE_DOWN, TWO_DOWN_PROD_ID, IS_ALLOW_TWO_DOWN, 
+      IS_ENABLE)
+    values (#{prodId,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{seriesId,jdbcType=INTEGER}, 
+      #{picturePath,jdbcType=VARCHAR}, #{cardName,jdbcType=VARCHAR}, #{prodCode,jdbcType=VARCHAR}, 
+      #{projrctCode,jdbcType=VARCHAR}, #{annualFeeCode,jdbcType=VARCHAR}, #{boardCode,jdbcType=VARCHAR}, 
+      #{freeRightNum,jdbcType=INTEGER}, #{chargeRightNum,jdbcType=INTEGER}, #{oneDownProdId,jdbcType=INTEGER}, 
+      #{isAllowOneDown,jdbcType=INTEGER}, #{twoDownProdId,jdbcType=INTEGER}, #{isAllowTwoDown,jdbcType=INTEGER}, 
+      #{isEnable,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriCardProd">
+    insert into T_ORI_CARD_PROD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="levelId != null">
+        LEVEL_ID,
+      </if>
+      <if test="seriesId != null">
+        SERIES_ID,
+      </if>
+      <if test="picturePath != null">
+        PICTURE_PATH,
+      </if>
+      <if test="cardName != null">
+        CARD_NAME,
+      </if>
+      <if test="prodCode != null">
+        PROD_CODE,
+      </if>
+      <if test="projrctCode != null">
+        PROJRCT_CODE,
+      </if>
+      <if test="annualFeeCode != null">
+        ANNUAL_FEE_CODE,
+      </if>
+      <if test="boardCode != null">
+        BOARD_CODE,
+      </if>
+      <if test="freeRightNum != null">
+        FREE_RIGHT_NUM,
+      </if>
+      <if test="chargeRightNum != null">
+        CHARGE_RIGHT_NUM,
+      </if>
+      <if test="oneDownProdId != null">
+        ONE_DOWN_PROD_ID,
+      </if>
+      <if test="isAllowOneDown != null">
+        IS_ALLOW_ONE_DOWN,
+      </if>
+      <if test="twoDownProdId != null">
+        TWO_DOWN_PROD_ID,
+      </if>
+      <if test="isAllowTwoDown != null">
+        IS_ALLOW_TWO_DOWN,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="levelId != null">
+        #{levelId,jdbcType=INTEGER},
+      </if>
+      <if test="seriesId != null">
+        #{seriesId,jdbcType=INTEGER},
+      </if>
+      <if test="picturePath != null">
+        #{picturePath,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null">
+        #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodCode != null">
+        #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projrctCode != null">
+        #{projrctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="annualFeeCode != null">
+        #{annualFeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boardCode != null">
+        #{boardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="freeRightNum != null">
+        #{freeRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="chargeRightNum != null">
+        #{chargeRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="oneDownProdId != null">
+        #{oneDownProdId,jdbcType=INTEGER},
+      </if>
+      <if test="isAllowOneDown != null">
+        #{isAllowOneDown,jdbcType=INTEGER},
+      </if>
+      <if test="twoDownProdId != null">
+        #{twoDownProdId,jdbcType=INTEGER},
+      </if>
+      <if test="isAllowTwoDown != null">
+        #{isAllowTwoDown,jdbcType=INTEGER},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriCardProd">
+    update T_ORI_CARD_PROD
+    <set>
+      <if test="levelId != null">
+        LEVEL_ID = #{levelId,jdbcType=INTEGER},
+      </if>
+      <if test="seriesId != null">
+        SERIES_ID = #{seriesId,jdbcType=INTEGER},
+      </if>
+      <if test="picturePath != null">
+        PICTURE_PATH = #{picturePath,jdbcType=VARCHAR},
+      </if>
+      <if test="cardName != null">
+        CARD_NAME = #{cardName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodCode != null">
+        PROD_CODE = #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projrctCode != null">
+        PROJRCT_CODE = #{projrctCode,jdbcType=VARCHAR},
+      </if>
+      <if test="annualFeeCode != null">
+        ANNUAL_FEE_CODE = #{annualFeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boardCode != null">
+        BOARD_CODE = #{boardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="freeRightNum != null">
+        FREE_RIGHT_NUM = #{freeRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="chargeRightNum != null">
+        CHARGE_RIGHT_NUM = #{chargeRightNum,jdbcType=INTEGER},
+      </if>
+      <if test="oneDownProdId != null">
+        ONE_DOWN_PROD_ID = #{oneDownProdId,jdbcType=INTEGER},
+      </if>
+      <if test="isAllowOneDown != null">
+        IS_ALLOW_ONE_DOWN = #{isAllowOneDown,jdbcType=INTEGER},
+      </if>
+      <if test="twoDownProdId != null">
+        TWO_DOWN_PROD_ID = #{twoDownProdId,jdbcType=INTEGER},
+      </if>
+      <if test="isAllowTwoDown != null">
+        IS_ALLOW_TWO_DOWN = #{isAllowTwoDown,jdbcType=INTEGER},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      </if>
+    </set>
+    where PROD_ID = #{prodId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriCardProd">
+    update T_ORI_CARD_PROD
+    set LEVEL_ID = #{levelId,jdbcType=INTEGER},
+      SERIES_ID = #{seriesId,jdbcType=INTEGER},
+      PICTURE_PATH = #{picturePath,jdbcType=VARCHAR},
+      CARD_NAME = #{cardName,jdbcType=VARCHAR},
+      PROD_CODE = #{prodCode,jdbcType=VARCHAR},
+      PROJRCT_CODE = #{projrctCode,jdbcType=VARCHAR},
+      ANNUAL_FEE_CODE = #{annualFeeCode,jdbcType=VARCHAR},
+      BOARD_CODE = #{boardCode,jdbcType=VARCHAR},
+      FREE_RIGHT_NUM = #{freeRightNum,jdbcType=INTEGER},
+      CHARGE_RIGHT_NUM = #{chargeRightNum,jdbcType=INTEGER},
+      ONE_DOWN_PROD_ID = #{oneDownProdId,jdbcType=INTEGER},
+      IS_ALLOW_ONE_DOWN = #{isAllowOneDown,jdbcType=INTEGER},
+      TWO_DOWN_PROD_ID = #{twoDownProdId,jdbcType=INTEGER},
+      IS_ALLOW_TWO_DOWN = #{isAllowTwoDown,jdbcType=INTEGER},
+      IS_ENABLE = #{isEnable,jdbcType=INTEGER}
+    where PROD_ID = #{prodId,jdbcType=INTEGER}
+  </update>
+</mapper>

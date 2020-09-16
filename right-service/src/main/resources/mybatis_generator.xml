@@ -55,8 +55,63 @@
         <table tableName="dic_scenarioscol_status_rel" domainObjectName="DicScenarioscolStatusRel" enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
-
-
+		<table tableName="T_ORI_BATCH_IMPORT" domainObjectName="TOriBatchImport" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_CARD_CHANNEL" domainObjectName="TOriCardChannel" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_CARD_CHANNEL_RIGHT" domainObjectName="TOriCardChannelRight" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_CARD_LEVEL" domainObjectName="TOriCardLevel" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_CARD_LEVEL_RIGHT" domainObjectName="TOriCardLevelRight" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_CARD_PROD" domainObjectName="TOriCardProd" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_CARD_PROD_RIGHT" domainObjectName="TOriCardProdRight" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_CARD_SERIES" domainObjectName="TOriCardSeries" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_CARD_SERIES_RIGHT" domainObjectName="TOriCardSeriesRight" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_CARD_USER" domainObjectName="TOriCardUser" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_DOWN_ORDER" domainObjectName="TOriDownOrder" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_DOWN_ORDER_DETAIL" domainObjectName="TOriDownOrderDetail" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_FIELD" domainObjectName="TOriField" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>  
+        <table tableName="T_ORI_INTERFACE_LOG" domainObjectName="TOriInterfaceLog" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table> 
+        <table tableName="T_ORI_ORDER" domainObjectName="TOriOrder" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_ORDER_DETAIL" domainObjectName="TOriOrderDetail" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>
+        <table tableName="T_ORI_ORDER_RIGHT_CHARGE" domainObjectName="TOriOrderRightCharge" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>    
+        <table tableName="T_ORI_RIGHT" domainObjectName="TOriRight" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>  
+        <table tableName="T_ORI_RIGHT_SYSTEM" domainObjectName="TOriRightSystem" enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false" selectByExampleQueryId="true"></table>                                              
     </context>
 
 </generatorConfiguration>

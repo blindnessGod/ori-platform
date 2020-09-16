@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriCardSeriesMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriCardSeries">
+    <id column="SERIES_ID" jdbcType="INTEGER" property="seriesId" />
+    <result column="SERIES_NAME" jdbcType="VARCHAR" property="seriesName" />
+    <result column="CARD_RIGHTS" jdbcType="VARCHAR" property="cardRights" />
+    <result column="IS_ENABLE" jdbcType="INTEGER" property="isEnable" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERIES_ID, SERIES_NAME, CARD_RIGHTS, IS_ENABLE, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_CARD_SERIES
+    where SERIES_ID = #{seriesId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_CARD_SERIES
+    where SERIES_ID = #{seriesId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriCardSeries">
+    insert into T_ORI_CARD_SERIES (SERIES_ID, SERIES_NAME, CARD_RIGHTS, 
+      IS_ENABLE, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{seriesId,jdbcType=INTEGER}, #{seriesName,jdbcType=VARCHAR}, #{cardRights,jdbcType=VARCHAR}, 
+      #{isEnable,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriCardSeries">
+    insert into T_ORI_CARD_SERIES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seriesId != null">
+        SERIES_ID,
+      </if>
+      <if test="seriesName != null">
+        SERIES_NAME,
+      </if>
+      <if test="cardRights != null">
+        CARD_RIGHTS,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seriesId != null">
+        #{seriesId,jdbcType=INTEGER},
+      </if>
+      <if test="seriesName != null">
+        #{seriesName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardRights != null">
+        #{cardRights,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriCardSeries">
+    update T_ORI_CARD_SERIES
+    <set>
+      <if test="seriesName != null">
+        SERIES_NAME = #{seriesName,jdbcType=VARCHAR},
+      </if>
+      <if test="cardRights != null">
+        CARD_RIGHTS = #{cardRights,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SERIES_ID = #{seriesId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriCardSeries">
+    update T_ORI_CARD_SERIES
+    set SERIES_NAME = #{seriesName,jdbcType=VARCHAR},
+      CARD_RIGHTS = #{cardRights,jdbcType=VARCHAR},
+      IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where SERIES_ID = #{seriesId,jdbcType=INTEGER}
+  </update>
+</mapper>

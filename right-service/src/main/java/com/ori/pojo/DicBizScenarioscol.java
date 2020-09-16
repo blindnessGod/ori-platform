@@ -1,7 +1,8 @@
 package com.ori.pojo;
 
 public class DicBizScenarioscol {
-    private Integer bizId;
+
+	private Integer bizId;
 
     private String bizCd;
 

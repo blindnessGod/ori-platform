@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriDownOrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriDownOrderDetail">
+    <id column="ORDER_DETAIL_ID" jdbcType="VARCHAR" property="orderDetailId" />
+    <result column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="RIGHT_ID" jdbcType="INTEGER" property="rightId" />
+    <result column="RIGHT_NAME" jdbcType="VARCHAR" property="rightName" />
+    <result column="REQUIRED_FLAG" jdbcType="INTEGER" property="requiredFlag" />
+    <result column="FIELD_ID" jdbcType="INTEGER" property="fieldId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORDER_DETAIL_ID, ORDER_ID, RIGHT_ID, RIGHT_NAME, REQUIRED_FLAG, FIELD_ID, CREATE_TIME, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_DOWN_ORDER_DETAIL
+    where ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_ORI_DOWN_ORDER_DETAIL
+    where ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriDownOrderDetail">
+    insert into T_ORI_DOWN_ORDER_DETAIL (ORDER_DETAIL_ID, ORDER_ID, RIGHT_ID, 
+      RIGHT_NAME, REQUIRED_FLAG, FIELD_ID, 
+      CREATE_TIME, UPDATE_TIME)
+    values (#{orderDetailId,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{rightId,jdbcType=INTEGER}, 
+      #{rightName,jdbcType=VARCHAR}, #{requiredFlag,jdbcType=INTEGER}, #{fieldId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriDownOrderDetail">
+    insert into T_ORI_DOWN_ORDER_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderDetailId != null">
+        ORDER_DETAIL_ID,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID,
+      </if>
+      <if test="rightName != null">
+        RIGHT_NAME,
+      </if>
+      <if test="requiredFlag != null">
+        REQUIRED_FLAG,
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderDetailId != null">
+        #{orderDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="rightId != null">
+        #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="rightName != null">
+        #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="requiredFlag != null">
+        #{requiredFlag,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        #{fieldId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriDownOrderDetail">
+    update T_ORI_DOWN_ORDER_DETAIL
+    <set>
+      <if test="orderId != null">
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="rightName != null">
+        RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="requiredFlag != null">
+        REQUIRED_FLAG = #{requiredFlag,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID = #{fieldId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriDownOrderDetail">
+    update T_ORI_DOWN_ORDER_DETAIL
+    set ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      REQUIRED_FLAG = #{requiredFlag,jdbcType=INTEGER},
+      FIELD_ID = #{fieldId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR}
+  </update>
+</mapper>

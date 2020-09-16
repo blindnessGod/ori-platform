@@ -7,7 +7,8 @@ import com.ori.pojo.DicBizScenarioscol;
 
 @Mapper
 public interface DicBizScenarioscolMapper {
-    int deleteByPrimaryKey(@Param("bizId")Integer bizId);
+
+	int deleteByPrimaryKey(@Param("bizId")Integer bizId);
 
     int insert(DicBizScenarioscol record);
 

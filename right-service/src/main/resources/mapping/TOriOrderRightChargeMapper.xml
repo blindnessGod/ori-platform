@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriOrderRightChargeMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriOrderRightCharge">
+    <id column="CHARGE_ID" jdbcType="INTEGER" property="chargeId" />
+    <result column="ORDER_DETAIL_ID" jdbcType="VARCHAR" property="orderDetailId" />
+    <result column="RIGHT_ID" jdbcType="INTEGER" property="rightId" />
+    <result column="CHARGE_AMOUNT" jdbcType="DECIMAL" property="chargeAmount" />
+    <result column="CHARGE_STATUS" jdbcType="INTEGER" property="chargeStatus" />
+    <result column="CHARGE_DESC" jdbcType="VARCHAR" property="chargeDesc" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CHARGE_ID, ORDER_DETAIL_ID, RIGHT_ID, CHARGE_AMOUNT, CHARGE_STATUS, CHARGE_DESC, 
+    CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_ORDER_RIGHT_CHARGE
+    where CHARGE_ID = #{chargeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_ORDER_RIGHT_CHARGE
+    where CHARGE_ID = #{chargeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriOrderRightCharge">
+    insert into T_ORI_ORDER_RIGHT_CHARGE (CHARGE_ID, ORDER_DETAIL_ID, RIGHT_ID, 
+      CHARGE_AMOUNT, CHARGE_STATUS, CHARGE_DESC, 
+      CREATE_TIME, UPDATE_TIME)
+    values (#{chargeId,jdbcType=INTEGER}, #{orderDetailId,jdbcType=VARCHAR}, #{rightId,jdbcType=INTEGER}, 
+      #{chargeAmount,jdbcType=DECIMAL}, #{chargeStatus,jdbcType=INTEGER}, #{chargeDesc,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriOrderRightCharge">
+    insert into T_ORI_ORDER_RIGHT_CHARGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chargeId != null">
+        CHARGE_ID,
+      </if>
+      <if test="orderDetailId != null">
+        ORDER_DETAIL_ID,
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID,
+      </if>
+      <if test="chargeAmount != null">
+        CHARGE_AMOUNT,
+      </if>
+      <if test="chargeStatus != null">
+        CHARGE_STATUS,
+      </if>
+      <if test="chargeDesc != null">
+        CHARGE_DESC,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chargeId != null">
+        #{chargeId,jdbcType=INTEGER},
+      </if>
+      <if test="orderDetailId != null">
+        #{orderDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="rightId != null">
+        #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="chargeAmount != null">
+        #{chargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeStatus != null">
+        #{chargeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="chargeDesc != null">
+        #{chargeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriOrderRightCharge">
+    update T_ORI_ORDER_RIGHT_CHARGE
+    <set>
+      <if test="orderDetailId != null">
+        ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="rightId != null">
+        RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="chargeAmount != null">
+        CHARGE_AMOUNT = #{chargeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeStatus != null">
+        CHARGE_STATUS = #{chargeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="chargeDesc != null">
+        CHARGE_DESC = #{chargeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CHARGE_ID = #{chargeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriOrderRightCharge">
+    update T_ORI_ORDER_RIGHT_CHARGE
+    set ORDER_DETAIL_ID = #{orderDetailId,jdbcType=VARCHAR},
+      RIGHT_ID = #{rightId,jdbcType=INTEGER},
+      CHARGE_AMOUNT = #{chargeAmount,jdbcType=DECIMAL},
+      CHARGE_STATUS = #{chargeStatus,jdbcType=INTEGER},
+      CHARGE_DESC = #{chargeDesc,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where CHARGE_ID = #{chargeId,jdbcType=INTEGER}
+  </update>
+</mapper>

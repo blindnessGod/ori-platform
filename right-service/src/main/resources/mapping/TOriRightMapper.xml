@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ori.mapper.TOriRightMapper">
+  <resultMap id="BaseResultMap" type="com.ori.pojo.TOriRight">
+    <id column="RIGHT_ID" jdbcType="INTEGER" property="rightId" />
+    <result column="RIGHT_NAME" jdbcType="VARCHAR" property="rightName" />
+    <result column="ICON_PATH" jdbcType="VARCHAR" property="iconPath" />
+    <result column="BANNER_PATH" jdbcType="VARCHAR" property="bannerPath" />
+    <result column="RIGHT_DETAIL" jdbcType="VARCHAR" property="rightDetail" />
+    <result column="RIGHT_TYPE" jdbcType="INTEGER" property="rightType" />
+    <result column="RIGHT_PRICE" jdbcType="DECIMAL" property="rightPrice" />
+    <result column="RIGHT_SKETCH" jdbcType="VARCHAR" property="rightSketch" />
+    <result column="ONLINE_FLAG" jdbcType="INTEGER" property="onlineFlag" />
+    <result column="REQUIRED_FLAG" jdbcType="INTEGER" property="requiredFlag" />
+    <result column="IS_ENABLE" jdbcType="INTEGER" property="isEnable" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="RIGHT_NUM" jdbcType="INTEGER" property="rightNum" />
+    <result column="FIELD_ID" jdbcType="INTEGER" property="fieldId" />
+    <result column="RIGHT_SYSTEM_ID" jdbcType="INTEGER" property="rightSystemId" />
+    <result column="RIGHT_START_TIME" jdbcType="TIMESTAMP" property="rightStartTime" />
+    <result column="RIGHT_END_TIME" jdbcType="TIMESTAMP" property="rightEndTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    RIGHT_ID, RIGHT_NAME, ICON_PATH, BANNER_PATH, RIGHT_DETAIL, RIGHT_TYPE, RIGHT_PRICE, 
+    RIGHT_SKETCH, ONLINE_FLAG, REQUIRED_FLAG, IS_ENABLE, CREATE_TIME, UPDATE_TIME, RIGHT_NUM, 
+    FIELD_ID, RIGHT_SYSTEM_ID, RIGHT_START_TIME, RIGHT_END_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_ORI_RIGHT
+    where RIGHT_ID = #{rightId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from T_ORI_RIGHT
+    where RIGHT_ID = #{rightId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ori.pojo.TOriRight">
+    insert into T_ORI_RIGHT (RIGHT_ID, RIGHT_NAME, ICON_PATH, 
+      BANNER_PATH, RIGHT_DETAIL, RIGHT_TYPE, 
+      RIGHT_PRICE, RIGHT_SKETCH, ONLINE_FLAG, 
+      REQUIRED_FLAG, IS_ENABLE, CREATE_TIME, 
+      UPDATE_TIME, RIGHT_NUM, FIELD_ID, 
+      RIGHT_SYSTEM_ID, RIGHT_START_TIME, RIGHT_END_TIME
+      )
+    values (#{rightId,jdbcType=INTEGER}, #{rightName,jdbcType=VARCHAR}, #{iconPath,jdbcType=VARCHAR}, 
+      #{bannerPath,jdbcType=VARCHAR}, #{rightDetail,jdbcType=VARCHAR}, #{rightType,jdbcType=INTEGER}, 
+      #{rightPrice,jdbcType=DECIMAL}, #{rightSketch,jdbcType=VARCHAR}, #{onlineFlag,jdbcType=INTEGER}, 
+      #{requiredFlag,jdbcType=INTEGER}, #{isEnable,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{rightNum,jdbcType=INTEGER}, #{fieldId,jdbcType=INTEGER}, 
+      #{rightSystemId,jdbcType=INTEGER}, #{rightStartTime,jdbcType=TIMESTAMP}, #{rightEndTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ori.pojo.TOriRight">
+    insert into T_ORI_RIGHT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rightId != null">
+        RIGHT_ID,
+      </if>
+      <if test="rightName != null">
+        RIGHT_NAME,
+      </if>
+      <if test="iconPath != null">
+        ICON_PATH,
+      </if>
+      <if test="bannerPath != null">
+        BANNER_PATH,
+      </if>
+      <if test="rightDetail != null">
+        RIGHT_DETAIL,
+      </if>
+      <if test="rightType != null">
+        RIGHT_TYPE,
+      </if>
+      <if test="rightPrice != null">
+        RIGHT_PRICE,
+      </if>
+      <if test="rightSketch != null">
+        RIGHT_SKETCH,
+      </if>
+      <if test="onlineFlag != null">
+        ONLINE_FLAG,
+      </if>
+      <if test="requiredFlag != null">
+        REQUIRED_FLAG,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="rightNum != null">
+        RIGHT_NUM,
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID,
+      </if>
+      <if test="rightSystemId != null">
+        RIGHT_SYSTEM_ID,
+      </if>
+      <if test="rightStartTime != null">
+        RIGHT_START_TIME,
+      </if>
+      <if test="rightEndTime != null">
+        RIGHT_END_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rightId != null">
+        #{rightId,jdbcType=INTEGER},
+      </if>
+      <if test="rightName != null">
+        #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="iconPath != null">
+        #{iconPath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerPath != null">
+        #{bannerPath,jdbcType=VARCHAR},
+      </if>
+      <if test="rightDetail != null">
+        #{rightDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        #{rightType,jdbcType=INTEGER},
+      </if>
+      <if test="rightPrice != null">
+        #{rightPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rightSketch != null">
+        #{rightSketch,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineFlag != null">
+        #{onlineFlag,jdbcType=INTEGER},
+      </if>
+      <if test="requiredFlag != null">
+        #{requiredFlag,jdbcType=INTEGER},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rightNum != null">
+        #{rightNum,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        #{fieldId,jdbcType=INTEGER},
+      </if>
+      <if test="rightSystemId != null">
+        #{rightSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="rightStartTime != null">
+        #{rightStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rightEndTime != null">
+        #{rightEndTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ori.pojo.TOriRight">
+    update T_ORI_RIGHT
+    <set>
+      <if test="rightName != null">
+        RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      </if>
+      <if test="iconPath != null">
+        ICON_PATH = #{iconPath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerPath != null">
+        BANNER_PATH = #{bannerPath,jdbcType=VARCHAR},
+      </if>
+      <if test="rightDetail != null">
+        RIGHT_DETAIL = #{rightDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        RIGHT_TYPE = #{rightType,jdbcType=INTEGER},
+      </if>
+      <if test="rightPrice != null">
+        RIGHT_PRICE = #{rightPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rightSketch != null">
+        RIGHT_SKETCH = #{rightSketch,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineFlag != null">
+        ONLINE_FLAG = #{onlineFlag,jdbcType=INTEGER},
+      </if>
+      <if test="requiredFlag != null">
+        REQUIRED_FLAG = #{requiredFlag,jdbcType=INTEGER},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rightNum != null">
+        RIGHT_NUM = #{rightNum,jdbcType=INTEGER},
+      </if>
+      <if test="fieldId != null">
+        FIELD_ID = #{fieldId,jdbcType=INTEGER},
+      </if>
+      <if test="rightSystemId != null">
+        RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="rightStartTime != null">
+        RIGHT_START_TIME = #{rightStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rightEndTime != null">
+        RIGHT_END_TIME = #{rightEndTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RIGHT_ID = #{rightId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ori.pojo.TOriRight">
+    update T_ORI_RIGHT
+    set RIGHT_NAME = #{rightName,jdbcType=VARCHAR},
+      ICON_PATH = #{iconPath,jdbcType=VARCHAR},
+      BANNER_PATH = #{bannerPath,jdbcType=VARCHAR},
+      RIGHT_DETAIL = #{rightDetail,jdbcType=VARCHAR},
+      RIGHT_TYPE = #{rightType,jdbcType=INTEGER},
+      RIGHT_PRICE = #{rightPrice,jdbcType=DECIMAL},
+      RIGHT_SKETCH = #{rightSketch,jdbcType=VARCHAR},
+      ONLINE_FLAG = #{onlineFlag,jdbcType=INTEGER},
+      REQUIRED_FLAG = #{requiredFlag,jdbcType=INTEGER},
+      IS_ENABLE = #{isEnable,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      RIGHT_NUM = #{rightNum,jdbcType=INTEGER},
+      FIELD_ID = #{fieldId,jdbcType=INTEGER},
+      RIGHT_SYSTEM_ID = #{rightSystemId,jdbcType=INTEGER},
+      RIGHT_START_TIME = #{rightStartTime,jdbcType=TIMESTAMP},
+      RIGHT_END_TIME = #{rightEndTime,jdbcType=TIMESTAMP}
+    where RIGHT_ID = #{rightId,jdbcType=INTEGER}
+  </update>
+</mapper>

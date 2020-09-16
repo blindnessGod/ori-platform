@@ -1,7 +1,8 @@
 package com.ori.pojo;
 
 public class DicScenarioscolStatusRel {
-    private Integer ssId;
+
+	private Integer ssId;
 
     private Integer bizId;
 

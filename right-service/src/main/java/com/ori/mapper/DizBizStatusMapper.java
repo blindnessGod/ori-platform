@@ -3,7 +3,8 @@ package com.ori.mapper;
 import com.ori.pojo.DizBizStatus;
 
 public interface DizBizStatusMapper {
-    int deleteByPrimaryKey(Integer statusId);
+
+	int deleteByPrimaryKey(Integer statusId);
 
     int insert(DizBizStatus record);
 
